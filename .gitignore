@@ -1,3 +1,4 @@
+*.code-workspace
 submit.csv
 .vscode
 .DS_Store
