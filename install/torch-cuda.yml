@@ -1,12 +1,14 @@
 name: torch
 channels:
   - pytorch
-  - conda-forge
+  - nvidia
 dependencies:
     - python=3.9
     - pip>=19.0
     - pytorch 
     - torchvision 
+    - torchaudio
+    - facenet-pytorch
     - jupyter
     - scikit-learn
     - scipy
@@ -23,6 +25,5 @@ dependencies:
     - ipykernel
     - pip:
         - bayesian-optimization
-        - gym
-        - kaggle
+
         
