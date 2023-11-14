@@ -3,10 +3,6 @@
 
 Instructor: [Jeff Heaton](https://sites.wustl.edu/jeffheaton/)
 
-*This branch contains the evolving PyTorch version of this course.  It is a work in progress and is not yet complete.*
-
-**The content of this course changes as technology evolves**, to keep up to date with changes [follow me on GitHub](https://github.com/jeffheaton).
-
 * Section 1. Fall 2023, Monday, 2:30 PM, Location: Louderman/461
 * Section 2. Fall 2023, Online
 
