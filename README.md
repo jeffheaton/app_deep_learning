@@ -4,7 +4,7 @@
 
 Instructor: [Jeff Heaton](https://sites.wustl.edu/jeffheaton/)
 
-- Section 1. Spring 2024, Tuesday, 2:30 PM, Location: TBA
+- Section 1. Spring 2024, Tuesday, 2:30 PM, Location: Cupples I / 215
 
 # Course Description
 
