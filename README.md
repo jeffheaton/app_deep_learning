@@ -20,7 +20,7 @@ Deep learning is a group of exciting new technologies for neural networks. Throu
 # Syllabus
 
 This syllabus presents the expected class schedule, due dates, and reading assignments.  
-[Download current syllabus](https://s3.amazonaws.com/data.heatonresearch.com/wustl/syllabus/jheaton-t81-558-spring-2026-syllabus.pdf)
+[Download current syllabus](https://s3.us-east-1.amazonaws.com/data.heatonresearch.com/wustl/syllabus/syllabus-t81-558-current.pdf)
 
 | Module                                                                      | Content                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
