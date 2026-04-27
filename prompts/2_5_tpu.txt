@@ -1,0 +1,59 @@
+Generate modern PyTorch code that runs in a single Jupyter notebook cell. The code should demonstrate training a small neural network on a tabular dataset using a Google TPU through PyTorch/XLA, with a CPU or GPU fallback if TPU support is not available.
+
+Requirements:
+
+1. TPU Device Detection
+- Attempt to import `torch_xla.core.xla_model` as `xm`
+- If PyTorch/XLA is available:
+  - Select the TPU device using `xm.xla_device()`
+  - Store the selected device in a variable named `device`
+  - Set a boolean variable named `use_tpu` to `True`
+  - Print which TPU device is being used
+- If PyTorch/XLA is not available:
+  - Fall back to CUDA if available, otherwise CPU
+  - Store the selected fallback device in `device`
+  - Set `use_tpu` to `False`
+  - Print which fallback device is being used
+
+2. Model Definition
+- Define a class named `Net` that inherits from `torch.nn.Module`
+- The constructor should accept `input_dim` and `output_dim`
+- Use a small fully connected architecture with two hidden layers
+- Apply ReLU activation between hidden layers
+- Return the final linear output for regression
+
+3. Data Pipeline
+- Load a tabular regression dataset from a URL using pandas
+- Handle missing values appropriately
+- One-hot encode categorical features
+- Extract features into a NumPy array named `x_np`
+- Extract the target into a NumPy array named `y_np`
+- Scale the features using `StandardScaler`
+
+4. Tensor Conversion
+- Convert `x_np` and `y_np` into PyTorch tensors named `x` and `y`
+- Move tensors to the selected `device`
+- Use `torch.float32`
+
+5. Training Setup
+- Initialize the model and move it to `device`
+- Use mean squared error loss for regression
+- Use Adam optimizer with a reasonable learning rate
+
+6. Training Loop
+- Train for a fixed number of epochs
+- Perform standard steps: zero gradients, forward pass, loss computation, backward pass
+- If `use_tpu` is `True`, update parameters using `xm.optimizer_step(optimizer)`
+- Otherwise, update parameters using `optimizer.step()`
+- Flatten model output if needed to match the target shape
+- Print loss periodically
+
+7. Style Requirements
+- Output only Python code
+- Do not include markdown fences or explanation
+- Keep everything in a single Jupyter-friendly cell
+- Include clear section comments
+- Use consistent variable names:
+  device, use_tpu, xm, Net, df, x_np, y_np, scaler, x, y, model, loss_fn, optimizer, outputs, loss
+- Use modern PyTorch practices
+- Do not use deprecated APIs such as `Variable`

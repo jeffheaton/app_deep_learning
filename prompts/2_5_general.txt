@@ -1,0 +1,50 @@
+Generate modern PyTorch code that runs in a single Jupyter notebook cell. The code should demonstrate training a small neural network on a tabular dataset using a general-purpose compute device.
+
+Requirements:
+
+1. Device Detection
+- Detect the best available device in this priority order:
+  1. CUDA GPU (if available)
+  2. Apple Silicon GPU using MPS (if available)
+  3. CPU fallback
+- Store the selected device in a variable named `device`
+- Print which device is being used
+
+2. Model Definition
+- Define a class named `Net` that inherits from `torch.nn.Module`
+- The constructor should accept `input_dim` and `output_dim`
+- Use a small fully connected architecture with two hidden layers
+- Apply ReLU activation between hidden layers
+- Return the final linear output (regression)
+
+3. Data Pipeline
+- Load a tabular dataset from a URL using pandas
+- Handle missing values appropriately (e.g., median fill)
+- One-hot encode at least one categorical column
+- Extract features into a NumPy array named `x_np`
+- Extract the target into a NumPy array named `y_np`
+- Scale the features using `StandardScaler`
+
+4. Tensor Conversion
+- Convert `x_np` and `y_np` into PyTorch tensors named `x` and `y`
+- Move tensors to the selected `device`
+- Use `torch.float32`
+
+5. Training Setup
+- Initialize the model and move it to `device`
+- Use mean squared error loss for regression
+- Use Adam optimizer with a reasonable learning rate
+
+6. Training Loop
+- Train for a fixed number of epochs
+- Perform standard steps: zero gradients, forward pass, loss computation, backward pass, optimizer step
+- Flatten model output if needed to match target shape
+- Print loss periodically (e.g., every 50 or 100 epochs)
+
+7. Style Requirements
+- Output only Python code (no markdown or explanation)
+- Keep everything in a single cell
+- Use clear section comments (device, model, data, training, etc.)
+- Use consistent variable names:
+  device, Net, df, x_np, y_np, scaler, x, y, model, loss_fn, optimizer, outputs, loss
+- Use modern PyTorch (no deprecated APIs like Variable)

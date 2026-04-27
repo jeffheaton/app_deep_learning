@@ -1,0 +1,45 @@
+Generate clean, modern PyTorch code that can run inside a single Jupyter notebook cell.
+
+Assume a variable named device has already been defined earlier (e.g., "cpu", "cuda", or "mps"). Do not redefine it.
+
+The code should implement a complete, minimal deep learning workflow that includes:
+
+1. A neural network class
+   - Use torch.nn.Module.
+   - Constructor should accept input and output dimensions.
+   - Use a small fully connected architecture with multiple layers.
+   - Apply nonlinear activations (e.g., ReLU) between hidden layers.
+   - Final layer should return raw output (no activation for regression).
+
+2. Data loading and preprocessing
+   - Load a tabular dataset from a URL using pandas.
+   - Handle missing values appropriately.
+   - Encode any categorical features into numeric form.
+   - Separate features and target into NumPy arrays named x_np and y_np.
+   - Scale/normalize feature data.
+
+3. Tensor conversion
+   - Convert NumPy arrays into PyTorch tensors named x and y.
+   - Move tensors to the provided device.
+   - Use appropriate floating-point dtype.
+
+4. Model setup
+   - Instantiate the model using input/output dimensions derived from the data.
+   - Move the model to device.
+   - Define a suitable loss function for regression.
+   - Define an optimizer (e.g., Adam) with a reasonable learning rate.
+
+5. Training loop
+   - Run for a fixed number of epochs.
+   - Perform standard training steps: zero gradients, forward pass, compute loss, backward pass, optimizer step.
+   - Ensure output shape matches target (flatten if needed).
+   - Periodically print epoch and loss.
+
+Requirements:
+- Output only Python code (no markdown or explanation).
+- Keep everything in a single cell.
+- Use clear, concise comments to separate logical sections.
+- Use modern PyTorch practices (no deprecated APIs like Variable).
+- Use consistent, reusable variable names:
+  Net, df, x_np, y_np, scaler, x, y, model, loss_fn, optimizer, outputs, loss.
+- Keep the code clean and suitable for teaching purposes.
