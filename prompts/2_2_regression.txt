@@ -1,0 +1,43 @@
+Create modern Python Pytorch code that will be executed from a series of Jupyter notebook cells. This produce the
+source code text, do not produce a Jupyter notebook. Comment the code properly. Do not repeat imports from previous
+cells. Use consistent variable names so that the cells can be run in sequence using values from the pervious cell.
+Each cell should be separated by a comment that states which cell it us, for example # Cell 1.  The specs for
+what each cell does follows.
+
+Specs for Cell 1
+
+- Read "https://data.heatonresearch.com/data/t81-558/auto-mpg.csv" into a Pandas dataframe use na_values of "NA" and "?"
+- Keep a copy of the "name" column in a variable called "cars"
+- Replace any missing "horsepower" values with the median of that column
+- Create a variable "x" which is a tensor value of these columns: "cylinders", "displacement", "horsepower", "weight", "acceleration", "year", "origin"
+- Create a variable "y" which is a tensor value of "mpg"
+
+Specs for Cell 2
+
+- Use cpu/gpu/etc specified by "device". Device is already defined.
+- Create a neural network with layers Linear(50), ReLU, Linear(25), ReLU, Linear(1), assign to variable "model"
+- Create a MSELoss loss function assigned to "loss_fn"
+- Create an Adam optimizer with learning rate 0.01, assign to variable "optimizer"
+
+Specs for Cell 3
+
+- Train for 1000 epochs
+- Calculate the MSELoss and display epoch number and loss every 100 epochs
+
+Specs for Cell 4
+
+- Assign "pred" to the predictions for "x"
+- Print out the shape of pred, in the form "Shape: {}"
+- Print out the first 10 predictions.
+
+Specs for Cell 5
+
+- Print out the RMSE for "pred" vs "y", use scikit learn
+
+Specs for Cell 6
+
+- Print out the RMSE for "pred" vs "y", use PyTorch learn
+
+Specs for Cell 7
+
+Print the first 10 predictions on "x" in the form "{i}. Car name: {}, MPG: {}, ,predicted MPG: {}"

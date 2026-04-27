@@ -1,0 +1,53 @@
+Create modern Python Pytorch code that will be executed from a series of Jupyter notebook cells. This produce the
+source code text, do not produce a Jupyter notebook. Comment the code properly. Do not repeat imports from previous
+cells. Use consistent variable names so that the cells can be run in sequence using values from the pervious cell.
+Each cell should be separated by a comment that states which cell it us, for example # Cell 1. The specs for
+what each cell does follows.
+
+Specs for Cell 1
+
+- Read "https://data.heatonresearch.com/data/t81-558/iris.csv" into a Pandas dataframe named "df", use na_values of "NA" and "?"
+- Create a variable "x" which is a tensor value of these columns: "sepal_l", "sepal_w", "petal_l", "petal_w"
+- Create a variable "y" which is a tensor value of "species", encoded by a LabelEncoder
+- Create a variable "species" that has the LabelEncoder classes
+- Create assign a PyTorch sequence model to "model" with layers Linear(x shape), ReLU, Linear(50), ReLU, Linear(25,len(species))
+- Assing "criterion" to CrossEntropyLoss
+- Assign "optimizer" to Adam with learning rate of 0.01
+- Train for 1000 epochs, every 100 epochs output: "Epoch {}, loss: {}"
+
+Specs for Cell 2
+
+- Print out the species values stored in "species"
+
+Specs for Cell 3
+
+- Predict all values in "x" assign to "pred"
+- Print the shape of "pred"
+- Print the first 10 values of "pred"
+
+Specs for Cell 4
+
+- Print the predictions, as the max category returned by the neural network in each "pred" row
+- Print out the expected category index for each
+
+Specs for Cell 5
+
+- Print out the predictions from Cell 4, but print the actual species predicted
+
+Specs for Cell 6
+
+- Calculate the accuracy for "pred" and print the accuracy.
+
+Specs for Cell 7
+
+- Use the following sample flower: [5.0, 3.0, 4.0, 2.0]
+- Print the raw prediction and the predicted textual species
+
+Specs for Cell 8
+
+- predict two sample flowers: [5.0, 3.0, 4.0, 2.0], [5.2, 3.5, 1.5, 0.8]
+- Print the raw prediction and the predicted textual species
+
+Specs for Cell 9
+
+- Use torch.exp to print out the decoded predictions, display as regular ratio, not sci notation.
