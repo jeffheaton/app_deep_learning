@@ -11,7 +11,7 @@ Course materials for **T81-558: Applications of Deep Neural Networks** (Washingt
 ## Layout and naming
 
 - **Lesson notebooks**: `t81_558_class_<MODULE>_<PART>_<topic>.ipynb` (e.g. `t81_558_class_02_2_pytorch_neural.ipynb` = Module 2, Part 2.2). Module and part numbers are load-bearing — they drive the syllabus and the cross-links inside each notebook.
-- `assignments/` — student assignment templates, `assignment_yourname_t81_558_class<N>.ipynb`.
+- `assignments/` — student assignment templates, `assignment_yourname_t81_558_class<N>.ipynb`. Their preamble differs from lesson notebooks: instead of device selection they mount Google Drive, read the student's API key from the `T81_558_KEY` Colab secret, and `pip install` the `jh_submit` wheel (from `data.heatonresearch.com/library/`), which provides the `submit`/listing/file-checking helpers used to turn in work.
 - `install/` — conda environment files (`torch.yml`, `torch-conda.yml`, `torch-cuda.yml`) and an install-walkthrough notebook.
 - `prompts/` — plain-text LLM prompt specs (named `<module>_<part>_<topic>.txt`) used to generate notebook code cells. They follow a strict "Specs for Cell 1 / Cell 2 …" format; each generated cell is delimited by a `# Cell N` comment and shares variable names so cells run in sequence.
 - Data is not committed — notebooks download it at runtime from `https://data.heatonresearch.com/data/t81-558/...`.
@@ -19,7 +19,7 @@ Course materials for **T81-558: Applications of Deep Neural Networks** (Washingt
 ## Notebook conventions (follow these when editing or adding notebooks)
 
 Each lesson notebook opens with the same fixed preamble, in order:
-1. A Google Colab badge cell linking to `.../blob/main/<this-notebook>.ipynb`.
+1. A Google Colab badge cell linking to `.../blob/main/<this-notebook>.ipynb`. The badge URL must reference the notebook's **own** filename — badge links drift when a notebook is created by copying another (a past commit fixed four such copy/paste artifacts), so verify it whenever adding, renaming, or duplicating a notebook.
 2. A course-header markdown cell (title, "Module N Material", instructor links).
 3. A "Module N Material" list linking all five parts of the module.
 4. A Colab-detection + device-selection boilerplate code cell. **Device selection is standardized** — prefer MPS, then CUDA, then CPU:
@@ -38,4 +38,12 @@ Downstream code assumes `device` already exists — pass `device` explicitly rat
 
 ## Editing notebooks
 
-Edit `.ipynb` files with the notebook tools (NotebookEdit), not by hand-editing JSON. Several notebooks embed large base64 image/media outputs and are multiple MB — when inspecting them programmatically, read `source` cells and avoid dumping cell `outputs`. To run/preview locally, use Jupyter with an environment built from `install/torch.yml` (or the CUDA variant on an NVIDIA machine).
+Edit `.ipynb` files with the notebook tools (NotebookEdit), not by hand-editing JSON. Several notebooks embed large base64 image/media outputs and are multiple MB (the largest is ~14 MB) — when inspecting them programmatically, read `source` cells and avoid dumping cell `outputs`.
+
+To run/preview locally (use `torch-cuda.yml` instead on an NVIDIA machine):
+
+```bash
+conda env create -f install/torch.yml
+conda activate torch
+jupyter lab
+```
